@@ -12,6 +12,11 @@ class UpcomingTableViewCell: UITableViewCell {
     
     static let identifier = "UpcomingTableViewCell"
     
+//    private let contentStack: UIStackView = {
+//        let stack = UIStackView()
+//        return stack
+//    }()
+    
     private let posterImage: UIImageView = {
         let posterImage = UIImageView()
         posterImage.translatesAutoresizingMaskIntoConstraints = false
@@ -24,6 +29,8 @@ class UpcomingTableViewCell: UITableViewCell {
         let movieTitle = UILabel()
         movieTitle.translatesAutoresizingMaskIntoConstraints = false
         movieTitle.numberOfLines = 0
+        movieTitle.font = .systemFont(ofSize: 17, weight: .bold)
+        movieTitle.textColor = .white
         return movieTitle
     }()
     
@@ -63,6 +70,7 @@ class UpcomingTableViewCell: UITableViewCell {
         ])
         NSLayoutConstraint.activate([
             movieTitle.leadingAnchor.constraint(equalTo: posterImage.trailingAnchor, constant: 20),
+            movieTitle.trailingAnchor.constraint(equalTo: playBtn.leadingAnchor, constant: -20),
             movieTitle.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
         NSLayoutConstraint.activate([
